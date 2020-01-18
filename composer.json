@@ -34,8 +34,7 @@
     "spatie/image": "^1.4.0",
     "spatie/pdf-to-image": "^2.0",
     "spatie/temporary-directory": "^1.1",
-    "ext-fileinfo": "*",
-    "beyondcode/laravel-comments": "^1.1"
+    "ext-fileinfo": "*"
   },
   "require-dev": {
     "ext-pdo_sqlite": "*",

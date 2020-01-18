@@ -21,11 +21,13 @@ use Spatie\MediaLibrary\Models\Concerns\IsSorted;
 use Spatie\MediaLibrary\Models\Traits\CustomMediaProperties;
 use Spatie\MediaLibrary\ResponsiveImages\RegisteredResponsiveImages;
 use Spatie\MediaLibrary\UrlGenerator\UrlGeneratorFactory;
+use BeyondCode\Comments\Traits\HasComments;
 
 class Media extends Model implements Responsable, Htmlable
 {
     use IsSorted,
-        CustomMediaProperties;
+        CustomMediaProperties,
+        HasComments;
 
     const TYPE_OTHER = 'other';
 

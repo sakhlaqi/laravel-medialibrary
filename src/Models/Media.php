@@ -22,12 +22,14 @@ use Spatie\MediaLibrary\Models\Traits\CustomMediaProperties;
 use Spatie\MediaLibrary\ResponsiveImages\RegisteredResponsiveImages;
 use Spatie\MediaLibrary\UrlGenerator\UrlGeneratorFactory;
 use BeyondCode\Comments\Traits\HasComments;
+use App\Favoritable;
 
 class Media extends Model implements Responsable, Htmlable
 {
     use IsSorted,
         CustomMediaProperties,
-        HasComments;
+        HasComments,
+        Favoritable;
 
     const TYPE_OTHER = 'other';
 
@@ -38,6 +40,20 @@ class Media extends Model implements Responsable, Htmlable
         'custom_properties' => 'array',
         'responsive_images' => 'array',
     ];
+
+    /**
+     * The relations to eager load on every query.
+     *
+     * @var array
+     */
+    protected $with = ['favorites'];
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['favoritesCount', 'isFavorited'];
 
     public function model(): MorphTo
     {
